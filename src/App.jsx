@@ -4,9 +4,10 @@ import { fetchContacts } from "./redux/contactsOps";
 import {
   selectLoading,
   selectError,
-  selectFilteredContacts,
+  selectFilteredContacts, 
 } from "./redux/contactsSlice";
 import { setFilterName } from "./redux/filtersSlice";
+
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import Filter from "./components/Filter/Filter";
@@ -30,7 +31,7 @@ export default function App() {
     <div className="container">
       <h1>Книга контактів</h1>
       <ContactForm />
-      <Filter value={contacts.name} onChange={handleFilterChange} />
+      <Filter onChange={handleFilterChange} /> 
       {loading && <Loader />}
       {error && <p>{error}</p>}
       <ContactList contacts={contacts} />

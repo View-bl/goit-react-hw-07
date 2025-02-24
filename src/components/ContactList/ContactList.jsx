@@ -1,10 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
+import { selectFilteredContacts } from "../../redux/contactsSlice";
 import styles from "./ContactList.module.css";
 import { FiTrash2 } from "react-icons/fi";
 
-export default function ContactList({ contacts }) {
+export default function ContactList() {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectFilteredContacts);
 
   return (
     <ul className={styles.list}>
